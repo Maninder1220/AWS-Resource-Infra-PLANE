@@ -21,8 +21,8 @@ phases:
   build:
     commands:
       - echo "Starting build phase..."
-      - terraform validate  # Checking for syntax errors or misconfigurations
-      - tflint  # Running linting checks to ensure best practices
+      - terraform validate || { echo "Validation failed!"; exit 1; }
+      - tflint || { echo "Linting failed!"; exit 1; }
       - terraform plan -out=tfplan  # Creating an execution plan for review
       - echo "Build phase complete."
 
@@ -35,5 +35,5 @@ phases:
 
 artifacts:
   files:
-    - tfplan  # Storing Terraform plan for later use
-    - *.tfstate  # Storing state files if required for debugging
+    - tfplan  # Storing Terraform execution plan
+  discard-paths: yes  # Optional: Removes folder paths from the artifact
