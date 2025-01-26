@@ -1,0 +1,56 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Starting install phase..."
+      - echo "Installing dependencies..."
+      - yum install -y unzip wget  # Installing required tools for Terraform
+      - curl -o terraform.zip https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip
+      - unzip terraform.zip -d /usr/local/bin/
+      - terraform version  # Verifying Terraform installation
+      - curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install.sh | bash
+      - echo "Dependencies installed successfully."
+
+  pre_build:
+    commands:
+      - echo "Starting pre-build phase..."
+      - echo "Initializing Terraform..."
+      - terraform init  # Downloading and configuring provider plugins
+      - echo "Pre-build phase complete."
+
+  build:
+    commands:
+      - echo "Starting build phase..."
+      - echo "Validating Terraform configuration..."
+      - terraform validate  # Checking for syntax errors or misconfigurations
+      - echo "Linting Terraform code with TFLint..."
+      - tflint  # Running linting checks to ensure best practices
+      - echo "Generating Terraform plan..."
+      - terraform plan -out=tfplan  # Creating an execution plan for review
+      - echo "Build phase complete."
+
+  post_build:
+    commands:
+      - echo "Starting post-build phase..."
+      - echo "Applying Terraform changes..."
+      - terraform apply -auto-approve tfplan  # Deploying infrastructure
+      - echo "Terraform apply complete."
+      - echo "Post-build phase complete."
+
+reports:
+  terraform_reports:
+    files:
+      - tfplan  # Including the Terraform plan as part of the build report
+    base-directory: .  # Base directory where reports are stored
+
+artifacts:
+  files:
+    - tfplan  # Storing Terraform plan for later use
+    - tflint.log  # Storing linting logs for debugging
+    - *.tfstate  # Storing state files if required for debugging
+
+cache:
+  paths:
+    - /root/.terraform  # Caching Terraform modules and provider plugins
+    - /root/.tflint  # Caching TFLint configuration for faster subsequent builds
