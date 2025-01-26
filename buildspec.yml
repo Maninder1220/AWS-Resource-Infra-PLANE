@@ -14,6 +14,7 @@ phases:
   pre_build:
     commands:
       - echo "Starting pre-build phase..."
+      - cd ../WE3-C02-IaC/Root
       - terraform init  # Downloading and configuring provider plugins
       - echo "Pre-build phase complete."
 
