@@ -12,10 +12,8 @@ phases:
       - unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip
       - mv terraform /usr/local/bin/
       - rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
-      - echo "Installing snapd"
-      - sudo apt-get install -y snapd
       - echo "Installing TFLint..."
-      - sudo snap install tflint
+      - curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
       - echo "Installing TFLint Complete..."
 
   pre_build:
