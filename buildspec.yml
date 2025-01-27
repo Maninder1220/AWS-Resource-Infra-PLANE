@@ -4,12 +4,21 @@ phases:
   install:
     commands:
       - echo "Starting install phase..."
-      - apt install -y unzip wget  # Installing required tools for Terraform
-      - curl -o terraform.zip https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip
-      - unzip terraform.zip -d /usr/local/bin/
-      - terraform version  # Verifying Terraform installation
-      - curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install.sh | bash
-      - echo "Dependencies installed successfully."
+      - echo "Installing dependencies..."
+      - apt install -y unzip wget curl  # Installing required tools for Terraform
+      - echo "Installing Terraform..."
+      - TERRAFORM_VERSION="1.10.5"  # Specify the version you want to install
+      - wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+      - unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+      - mv terraform /usr/local/bin/
+      - rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+      - echo "Installing TFLint..."
+      - TFLINT_VERSION="0.55.0"  # Specify the version you want to install
+      - wget https://github.com/terraform-linters/tflint/releases/download/v${TFLINT_VERSION}/tflint-linux-amd64.zip
+      - unzip tflint-linux-amd64.zip
+      - mv tflint /usr/local/bin/
+      - rm tflint-linux-amd64.zip
+
 
   pre_build:
     commands:
