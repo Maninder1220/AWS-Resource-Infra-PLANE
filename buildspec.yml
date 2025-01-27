@@ -13,7 +13,7 @@ phases:
       - mv terraform /usr/local/bin/
       - rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
       - echo "Installing TFLint..."
-      - sudo apt install -y tflint
+      - sudo snap install tflint
 
   pre_build:
     commands:
