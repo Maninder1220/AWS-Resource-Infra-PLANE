@@ -32,6 +32,7 @@ phases:
       - tflint || { echo "Linting failed!"; exit 1; }
       - terraform plan -out=tfplan  # Creating an execution plan for review
       - echo "Build phase complete."
+      - pwd
 
   post_build:
     commands:
@@ -39,6 +40,7 @@ phases:
       - terraform apply -auto-approve tfplan  # Deploying infrastructure
       - echo "Terraform apply complete."
       - echo "Post-build phase complete."
+      - pwd
 
 artifacts:
   files:
