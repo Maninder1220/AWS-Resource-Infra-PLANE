@@ -5,7 +5,7 @@ phases:
     commands:
       - echo "Starting install phase..."
       - echo "Installing dependencies..."
-      - apt install -y unzip wget curl  # Installing required tools for Terraform
+      - apt install -y unzip wget curl  # Installing tools for Terraform
       - echo "Installing Terraform..."
       - TERRAFORM_VERSION="1.10.5"  # Specify the version you want to install
       - wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
@@ -13,7 +13,6 @@ phases:
       - mv terraform /usr/local/bin/
       - rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
       - echo "Installing snapd"
-      - sudo apt update
       - sudo apt install -y snapd
       - echo "Installing TFLint..."
       - sudo snap install tflint
