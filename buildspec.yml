@@ -20,6 +20,7 @@ phases:
     commands:
       - echo "Starting pre-build phase..."
       - cd ~
+      - git clone https://github.com/Maninder1220/WE3-C02-IaC.git
       - cd WE3-C02-IAC/Root
       - terraform init  # Downloading and configuring provider plugins
       - echo "Pre-build phase complete."
