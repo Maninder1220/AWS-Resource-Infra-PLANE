@@ -1,5 +1,4 @@
 *.tfstate
 *.tfstate.backup
-*.tfvars
 crash.log
 terraform.rc

@@ -17,11 +17,13 @@ phases:
       - sudo apt install -y snapd
       - echo "Installing TFLint..."
       - sudo snap install tflint
+      - echo "Installing TFLint Complete..."
 
   pre_build:
     commands:
       - echo "Starting pre-build phase..."
-      - cd ../WE3-C02-IaC/Root
+      - cd ~
+      - cd WE3-C02-IAC/Root
       - terraform init  # Downloading and configuring provider plugins
       - echo "Pre-build phase complete."
 
