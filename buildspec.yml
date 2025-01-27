@@ -13,12 +13,7 @@ phases:
       - mv terraform /usr/local/bin/
       - rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
       - echo "Installing TFLint..."
-      - TFLINT_VERSION="0.55.0"  # Specify the version you want to install
-      - wget https://github.com/terraform-linters/tflint/releases/download/v${TFLINT_VERSION}/tflint-linux-amd64.zip
-      - unzip tflint-linux-amd64.zip
-      - mv tflint /usr/local/bin/
-      - rm tflint-linux-amd64.zip
-
+      - sudo apt install -y tflint
 
   pre_build:
     commands:
