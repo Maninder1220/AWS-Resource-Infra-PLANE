@@ -49,4 +49,4 @@ phases:
 
 artifacts:
   files:
-    - /Root/tfplan  # Storing Terraform execution plan
+    - tfplan  # Storing Terraform execution plan
