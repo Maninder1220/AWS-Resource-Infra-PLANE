@@ -6,18 +6,8 @@ files:
     overwrite: true
 
 hooks:
-  ApplicationStop:
-    - location: scripts/01_stop_application.sh
-      timeout: 300
-      runas: root
-
   BeforeInstall:
     - location: scripts/02_before_install.sh
-      timeout: 300
-      runas: root
-
-  Install:
-    - location: scripts/03_install_dependency.sh
       timeout: 300
       runas: root
       
