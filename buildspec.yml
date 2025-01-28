@@ -41,23 +41,15 @@ phases:
       - terraform apply -auto-approve tfplan  # Deploying infrastructure
       - echo "Terraform apply complete."
       - echo "Post-build phase complete."
-      - echo "Checking for tfplan..."
-      - ls -R
-      - chmod +r tfplan
-      - ls -l
-      - find . -name "tfplan"
       - pwd
-
-  destroy:
-    commands:
-      - echo "Starting destroy phase..."
+      - echo "Starting destroying phase..."
       - terraform init
       - terraform destroy -auto-approve  # Destroying all resources
       - echo "Terraform destroy complete."
       - echo "Destroy phase complete."
+      
 
 artifacts:
   files:
-    - /root/WE3-C02-IaC/Root/tfplan  # Storing Terraform execution plan
     - /root/WE3-C02-IaC/Root/appspec.yml
     - /root/WE3-C02-IaC/Root/scripts
