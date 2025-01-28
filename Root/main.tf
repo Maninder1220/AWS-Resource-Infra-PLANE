@@ -69,6 +69,7 @@ module "key_pair" {
   source = "../Module/ec2_keypair"
 }
 
+/*
 # VPC ENDPOINT FOR EC2
 module "vpc_endpoint" {
   source = "../Module/endpoint"
@@ -77,6 +78,7 @@ module "vpc_endpoint" {
   sg_id = module.security_group.sg_id
   region = var.region
 }
+*/
 
 # EC2 INSTANCE
 module "ec2_instance" {

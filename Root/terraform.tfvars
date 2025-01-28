@@ -12,4 +12,6 @@ public_destination_cider = "0.0.0.0/0"
 
 private_destination_cider = "0.0.0.0/0"
 
+/*
 region = "ap-south-1"
+*/

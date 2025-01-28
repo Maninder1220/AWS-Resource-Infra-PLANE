@@ -19,9 +19,11 @@ variable "private_destination_cider" {
     type = string
 }
 
+/*
 # Region
 variable "region" {
     type = string
 }
+*/
 
 
