@@ -45,8 +45,9 @@ phases:
       - ls -R
       - chmod +r tfplan
       - ls -l
+      - find . -name "tfplan"
       - pwd
 
 artifacts:
   files:
-    - tfplan  # Storing Terraform execution plan
+    - /root/WE3-C02-IaC/Root/tfplan  # Storing Terraform execution plan
