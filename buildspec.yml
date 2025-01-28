@@ -48,6 +48,14 @@ phases:
       - find . -name "tfplan"
       - pwd
 
+  destroy:
+    commands:
+      - echo "Starting destroy phase..."
+      - terraform init
+      - terraform destroy -auto-approve  # Destroying all resources
+      - echo "Terraform destroy complete."
+      - echo "Destroy phase complete."
+
 artifacts:
   files:
     - /root/WE3-C02-IaC/Root/tfplan  # Storing Terraform execution plan
