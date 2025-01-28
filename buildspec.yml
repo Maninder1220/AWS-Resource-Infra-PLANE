@@ -51,3 +51,5 @@ phases:
 artifacts:
   files:
     - /root/WE3-C02-IaC/Root/tfplan  # Storing Terraform execution plan
+    - /root/WE3-C02-IaC/Root/appspec.yml
+    - /root/WE3-C02-IaC/scripts/*
