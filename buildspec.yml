@@ -41,9 +41,10 @@ phases:
       - terraform apply -auto-approve tfplan  # Deploying infrastructure
       - echo "Terraform apply complete."
       - echo "Post-build phase complete."
+      - echo "Checking for tfplan..."
+      - ls -R
       - pwd
 
 artifacts:
   files:
     - tfplan  # Storing Terraform execution plan
-  discard-paths: yes  # Optional: Removes folder paths from the artifact
