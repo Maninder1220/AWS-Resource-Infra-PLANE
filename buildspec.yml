@@ -31,7 +31,7 @@ phases:
       - echo "Starting build phase..."
       - terraform validate || { echo "Validation failed!"; exit 1; }
       - tflint || { echo "Linting failed!"; exit 1; }
-      - terraform plan -out=tfplan  # Creating an execution plan for review
+      - terraform plan -out=/Root/tfplan  # Creating an execution plan for review
       - echo "Build phase complete."
       - pwd
 
@@ -43,8 +43,10 @@ phases:
       - echo "Post-build phase complete."
       - echo "Checking for tfplan..."
       - ls -R
+      - chmod +r tfplan
+      - ls -l
       - pwd
 
 artifacts:
   files:
-    - Root/tfplan  # Storing Terraform execution plan
+    - /Root/tfplan  # Storing Terraform execution plan
