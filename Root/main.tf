@@ -21,11 +21,13 @@ module "subnets" {
   random_az = module.az.random_az
 }
 
+/*
 # NAT GATEWAY
 module "nat_gateway" {
   source = "../Module/nat_gateway"
   public_subnet_id = module.subnets.public_subnet_id
 }
+*/
 
 
 # INTERNET GATEWAY
