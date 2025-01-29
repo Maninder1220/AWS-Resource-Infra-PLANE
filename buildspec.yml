@@ -42,8 +42,8 @@ phases:
       # echo "Terraform apply complete."
       # echo "Post-build phase complete."
       - echo "Copying artifacts to root directory..."
-      - cp -r WE3-C02-IaC/Root/appspec.yml .
-      - cp -r WE3-C02-IaC/Root/scripts .
+      - cp -r /root/WE3-C02-IaC/Root/appspec.yml .
+      - cp -r /root/WE3-C02-IaC/Root/scripts .
       - pwd
       # echo "Starting destroying phase..."
       # terraform init
