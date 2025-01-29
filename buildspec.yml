@@ -41,6 +41,9 @@ phases:
       # terraform apply -auto-approve tfplan  # Deploying infrastructure
       # echo "Terraform apply complete."
       # echo "Post-build phase complete."
+      - echo "Moving artifacts to root directory..."
+      - cp /root/WE3-C02-IaC/Root/appspec.yml .
+      - cp -r /root/WE3-C02-IaC/Root/scripts .
       - pwd
       # echo "Starting destroying phase..."
       # terraform init
@@ -51,5 +54,5 @@ phases:
 
 artifacts:
   files:
-    - /root/WE3-C02-IaC/Root/appspec.yml
-    - /root/WE3-C02-IaC/Root/scripts
+    - appspec.yml
+    - scripts/**
