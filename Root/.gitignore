@@ -1,4 +1,0 @@
-*.tfstate
-*.tfstate.backup
-crash.log
-terraform.rc
