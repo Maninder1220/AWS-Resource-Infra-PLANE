@@ -41,7 +41,7 @@ phases:
       # terraform apply -auto-approve tfplan  # Deploying infrastructure
       # echo "Terraform apply complete."
       # echo "Post-build phase complete."
-      # pwd
+      - pwd
       # echo "Starting destroying phase..."
       # terraform init
       # terraform destroy -auto-approve  # Destroying all resources
@@ -51,5 +51,5 @@ phases:
 
 artifacts:
   files:
-    - appspec.yml
-    - scripts/
+    - /root/WE3-C02-IaC/Root/appspec.yml
+    - /root/WE3-C02-IaC/Root/scripts/
