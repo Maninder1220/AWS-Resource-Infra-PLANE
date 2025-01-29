@@ -51,5 +51,5 @@ phases:
 
 artifacts:
   files:
-    - /root/WE3-C02-IaC/Root/appspec.yml
-    - /root/WE3-C02-IaC/Root/scripts
+    - appspec.yml
+    - scripts

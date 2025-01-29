@@ -1,8 +1,8 @@
 version: 0.0
 os: linux
 files:
-  - source: /WE3-C02-IaC/Root/* # Adjust this to the Terraform project root folder or specific files
-    destination: /opt/codedeploy-agent/deployment-root/$DEPLOYMENT_GROUP_ID/$DEPLOYMENT_ID/deployment-archive  # Directory on the EC2 instance
+  - source: / # Adjust this to the Terraform project root folder or specific files
+    destination: /opt/codedeploy-agent/deployment-root/$DEPLOYMENT_GROUP_ID/$DEPLOYMENT_ID/deployment-archive/  # Directory on the EC2 instance
     overwrite: true
 
 hooks:
