@@ -26,7 +26,7 @@ phases:
   build:
     commands:
       - echo "Starting build phase..."
-      - terraform plan  # Creating an execution plan for review
+      - terraform plan -destroy -out=tfplan  # Creating an execution plan for review
       - echo "Build phase complete."
       - pwd
       
@@ -35,6 +35,6 @@ phases:
     commands:
       - echo "Starting post-build phase..."
       - echo "Applying Terraform changes..."
-      - terraform destroy -auto-approve  # Destroying infrastructure
+      - terraform apply -auto-approve tfplan  # Destroying infrastructure
       - echo "Terraform destroy complete."
       - echo "Post-build phase complete."
