@@ -4,6 +4,13 @@ phases:
   install:
     commands:
       - echo "Starting install phase..."
+      - apt-get install -y unzip wget curl  # Installing tools for Terraform
+      - echo "Installing Terraform..."
+      - TERRAFORM_VERSION="1.10.5"  # Specify the version you want to install
+      - wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+      - unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+      - mv terraform /usr/local/bin/
+      - rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 
   pre_build:
     commands:
